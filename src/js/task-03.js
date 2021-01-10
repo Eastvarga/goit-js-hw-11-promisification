@@ -7,9 +7,9 @@ const makeTransaction = (transaction /*, onSuccess, onError*/) => {
     const delay = randomIntegerFromInterval(200, 500);
     setTimeout(() => {
       const canProcess = Math.random() > 0.3;
-      console.log(delay);
+      //   console.log(delay);
       if (canProcess) {
-        transaction.time = delay;
+        transaction.time = delay; // add to object key time for code usability
         resolve(transaction);
       } else {
         reject(transaction);
