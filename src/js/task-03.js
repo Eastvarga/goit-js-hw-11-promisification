@@ -10,9 +10,9 @@ const makeTransaction = (transaction /*, onSuccess, onError*/) => {
       //   console.log(delay);
       if (canProcess) {
         transaction.time = delay; // add to object key time for code usability
-        resolve(transaction);
+        resolve({ id: transaction.id, time: delay });
       } else {
-        reject(transaction);
+        reject(transaction.id);
       }
     }, delay);
   });
@@ -22,7 +22,7 @@ const logSuccess = ({ id, time }) => {
   console.log(`Transaction ${id} processed in ${time} ms`);
 };
 
-const logError = ({ id }) => {
+const logError = ( id ) => {
   console.warn(`Error processing transaction ${id}. Please try again later.`);
 };
 
